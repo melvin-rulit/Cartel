@@ -6,14 +6,14 @@ services:
     container_name: nginx
     restart: unless-stopped
     volumes:
-      - ./src:/var/www
+      - ./:/var/www
       - ./docker/nginx:/etc/nginx/conf.d/
     ports:
-      - "9001:80"
+      - "80:80"
     depends_on:
      - db_mysql
     networks:
-     - take_heli
+     - Cartel
 
   php:
     build: docker/php
@@ -24,7 +24,7 @@ services:
     volumes:
       - ./:/var/www
     networks:
-      - take_heli
+      - Cartel
 
 # Mysql Service
   db_mysql:
@@ -37,11 +37,11 @@ services:
       MYSQL_USERNAME: root
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: discountService
+      MYSQL_DATABASE: cartel
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
     networks:
-      - take_heli
+      - Cartel
 
   # Rabbitmq Service
 #  rabbitmq:
@@ -74,10 +74,10 @@ services:
     depends_on:
       - db_mysql
     networks:
-      - take_heli
+      - Cartel
 
 networks:
-  take_heli:
+  Cartel:
 #    external: true
     driver: bridge
 

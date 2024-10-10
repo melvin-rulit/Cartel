@@ -1,0 +1,14 @@
+###
+
+POST localhost:9001/api/auth/login
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|0qHbB5ni43iEBIzLZdZJ0mzTxrgQLvRfcOEAOgNT4f92ba29
+
+####
+#
+#GET localhost/api/heliports/city/1
+#Accept: application/json
+#Content-Type: application/json
+#Authorization:
+

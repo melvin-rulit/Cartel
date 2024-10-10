@@ -6,7 +6,7 @@ services:
     container_name: nginx
     restart: unless-stopped
     volumes:
-      - ./:/var/www
+      - /www/Cartel:/var/www
       - ./docker/nginx:/etc/nginx/conf.d/
     ports:
       - "80:80"

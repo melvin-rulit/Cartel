@@ -4,10 +4,12 @@ services:
   nginx:
     image: nginx:alpine
     container_name: nginx
-    restart: unless-stopped
+    restart: "no"
     volumes:
       - /www/Cartel:/var/www
       - ./docker/nginx:/etc/nginx/conf.d/
+      - /etc/letsencrypt/live/cartelcrm.ru:/etc/letsencrypt/live/cartelcrm.ru:ro
+      - /etc/letsencrypt/archive/cartelcrm.ru:/etc/letsencrypt/archive/cartelcrm.ru:ro
     ports:
       - "80:80"
       - "443:443"
